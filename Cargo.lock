@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "niceErrors"
+name = "nice_errors"
 version = "0.1.0"

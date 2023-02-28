@@ -1,1 +1,1 @@
-# rustPractice-niceErrors
+# rustPractice-nice_errors

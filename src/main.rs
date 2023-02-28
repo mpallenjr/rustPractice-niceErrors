@@ -1,7 +1,8 @@
-
-#![allow(unused)]
-fn main() {
-let content = std::fs::read_to_string("text.txt").unwrap();
-
-println!("file content: {}", content);
-}
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let result = std::fs::read_to_string("test.txt");
+    let content = match result {
+        Ok(content) => { content },
+        Err(error) => { return Err(error.into()); }
+    };
+    Ok(())
+    }
