@@ -1,10 +1,9 @@
-#[derive(Debug)]
-struct CustomError(String);
+use anyhow::{Context, Result};
 
-fn main() -> Result<(), CustomError> {
+fn main() -> Result<()> {
     let path = "test.txt";
     let content = std::fs::read_to_string(path)
-        .map_err(|err| CustomError(format!("Error reading `{}`: {}", path, err)))?;
+        .with_context(|| format!("could not read file `{}`", path))?;
     println!("file content: {}", content);
     Ok(())
 }
